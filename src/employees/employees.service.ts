@@ -6,15 +6,15 @@ import {
 } from "./bindings";
 
 export const employeesService = declareInjectable(
-  ({ get }): IEmployeesService => ({
+  ({ inject }): IEmployeesService => ({
     getYoungest: async () => {
-      const client = get<IEmployeesClient>(EMPLOYEES_CLIENT);
+      const client = inject<IEmployeesClient>(EMPLOYEES_CLIENT);
       const employees = await client.getAll();
       return employees.sort((a, b) => a.employee_age - b.employee_age)[0];
     },
 
     getOldest: async () => {
-      const client = get<IEmployeesClient>(EMPLOYEES_CLIENT);
+      const client = inject<IEmployeesClient>(EMPLOYEES_CLIENT);
       const employees = await client.getAll();
       return employees.sort((a, b) => b.employee_age - a.employee_age)[0];
     },

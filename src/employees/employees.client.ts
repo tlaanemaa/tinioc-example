@@ -5,9 +5,9 @@ import { IRequestContext, REQUEST_CONTEXT } from "../context";
 import { IEmployee } from "./types";
 
 export const employeesClient = declareInjectable(
-  ({ get }): IEmployeesClient => ({
+  ({ inject }): IEmployeesClient => ({
     getAll: async () => {
-      const { correlationId } = get<IRequestContext>(REQUEST_CONTEXT);
+      const { correlationId } = inject<IRequestContext>(REQUEST_CONTEXT);
       const result = await fetch(
         "https://dummy.restapiexample.com/api/v1/employees",
         {
