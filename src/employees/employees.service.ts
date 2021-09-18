@@ -1,11 +1,11 @@
-import { declareDependency } from "tinioc";
+import { declareInjectable } from "tinioc";
 import {
   IEmployeesService,
   IEmployeesClient,
   EMPLOYEES_CLIENT,
 } from "./bindings";
 
-export const employeesService = declareDependency(
+export const employeesService = declareInjectable(
   ({ get }): IEmployeesService => ({
     getYoungest: async () => {
       const client = get<IEmployeesClient>(EMPLOYEES_CLIENT);

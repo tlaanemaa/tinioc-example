@@ -1,4 +1,4 @@
-import { declareDependency } from "tinioc";
+import { declareInjectable } from "tinioc";
 import { INumbersDB } from "./bindings";
 
 /**
@@ -20,7 +20,7 @@ class NumbersDB {
  * This is a simple way to create a singleton
  */
 let dbInstance: NumbersDB;
-export const numbersDB = declareDependency((): INumbersDB => {
+export const numbersDB = declareInjectable((): INumbersDB => {
   if (!dbInstance) dbInstance = new NumbersDB();
   return dbInstance;
 });
