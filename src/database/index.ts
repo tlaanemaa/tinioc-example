@@ -1,26 +1,2 @@
-import { declareDependency } from "tinioc";
-import { INumbersDB } from "../declarations";
-
-/**
- * A simple example implementation of a database
- */
-class NumbersDB {
-  private store = new Map<string, number>();
-
-  public getById(id: string) {
-    return this.store.get(id);
-  }
-
-  public setById(id: string, value: number) {
-    return this.store.set(id, value);
-  }
-}
-
-/**
- * This is a simple way to create a singleton
- */
-let dbInstance: NumbersDB;
-export default declareDependency((): INumbersDB => {
-  if (!dbInstance) dbInstance = new NumbersDB();
-  return dbInstance;
-});
+export { numbersDB } from "./numbersDB";
+export * from "./bindings";

@@ -3,7 +3,7 @@ import {
   IEmployeesService,
   IEmployeesClient,
   EMPLOYEES_CLIENT,
-} from "../declarations";
+} from "./bindings";
 
 export const employeesService = declareDependency(
   ({ get }): IEmployeesService => ({

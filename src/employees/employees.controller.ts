@@ -1,17 +1,12 @@
 import { Router } from "express";
 import { v4 as uuidv4 } from "uuid";
-import {
-  IRequestContext,
-  REQUEST_CONTEXT,
-  IEmployeesService,
-  EMPLOYEES_SERVICE,
-} from "../declarations";
-import { container } from "../bindings";
+import { IEmployeesService, EMPLOYEES_SERVICE } from "./bindings";
+import { IRequestContext, REQUEST_CONTEXT } from "../bindings";
+import { container } from "../container";
 
-const router = Router();
-export default router;
+export const employeesRouter = Router();
 
-router.get("/oldest", async (req, res, next) => {
+employeesRouter.get("/oldest", async (req, res, next) => {
   const ctx = { correlationId: req.header("correlation-id") ?? uuidv4() };
   const result = await container
     .createChild()
@@ -20,4 +15,5 @@ router.get("/oldest", async (req, res, next) => {
     .getOldest();
 
   res.json(result);
+  next();
 });

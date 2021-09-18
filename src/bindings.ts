@@ -1,18 +1,17 @@
-import { Container } from "tinioc";
-import {
-  INumbersDB,
-  NUMBERS_DB,
-  IEmployeesClient,
-  EMPLOYEES_CLIENT,
-  IEmployeesService,
-  EMPLOYEES_SERVICE,
-} from "./declarations";
-import database from "./database";
-import { employeesClient } from "./employees/employees.client";
-import { employeesService } from "./employees/employees.service";
+/*
+    This is where our dependency declarations are kept.
 
-export const container = new Container();
+    Keeping IDs and Interfaces in a separate file like this
+    allows us to really decouple our components from each-other.
+    Components will depend on these interfaces, not the concrete
+    implementations.
 
-container.bind<INumbersDB>(NUMBERS_DB, database);
-container.bind<IEmployeesClient>(EMPLOYEES_CLIENT, employeesClient);
-container.bind<IEmployeesService>(EMPLOYEES_SERVICE, employeesService);
+    Also, connecting the dependency ID with it's interface will give us
+    type safety. As long as the same pair is used together, we'll know that
+    we will receive a dependency that fulfills the interface.
+*/
+
+export const REQUEST_CONTEXT = Symbol.for("request_context");
+export interface IRequestContext {
+  correlationId: string;
+}
