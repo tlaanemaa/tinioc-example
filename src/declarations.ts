@@ -10,6 +10,23 @@
     type safety. As long as the same pair is used together, we'll know that
     we will receive a dependency that fulfills the interface.
 */
+import { IEmployee } from "./employees/types";
+
+export const REQUEST_CONTEXT = Symbol.for("request_context");
+export interface IRequestContext {
+  correlationId: string;
+}
+
+export const EMPLOYEES_SERVICE = Symbol.for("employees_service");
+export interface IEmployeesService {
+  getYoungest(): Promise<IEmployee>;
+  getOldest(): Promise<IEmployee>;
+}
+
+export const EMPLOYEES_CLIENT = Symbol.for("employees_client");
+export interface IEmployeesClient {
+  getAll(): Promise<IEmployee[]>;
+}
 
 export const NUMBERS_DB = Symbol.for("numbers_db");
 export interface INumbersDB {
