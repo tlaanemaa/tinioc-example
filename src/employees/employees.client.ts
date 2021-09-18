@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import { declareDependency } from "tinioc";
 import { IEmployeesClient } from "./bindings";
-import { IRequestContext, REQUEST_CONTEXT } from "../bindings";
+import { IRequestContext, REQUEST_CONTEXT } from "../context";
 import { IEmployee } from "./types";
 
 export const employeesClient = declareDependency(

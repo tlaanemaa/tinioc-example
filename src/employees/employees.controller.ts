@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { v4 as uuidv4 } from "uuid";
 import { IEmployeesService, EMPLOYEES_SERVICE } from "./bindings";
-import { IRequestContext, REQUEST_CONTEXT } from "../bindings";
-import { container } from "../container";
+import { IRequestContext, REQUEST_CONTEXT } from "../context";
+import { container } from "./container";
 
 export const employeesRouter = Router();
 
