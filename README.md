@@ -1,2 +1,2 @@
 # tinioc-example
-An example microservice showcasing tinioc
+An example micro-service showcasing tinioc
