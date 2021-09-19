@@ -18,8 +18,5 @@ class NumbersDB {
 /**
  * This is a simple way to create a singleton
  */
-let dbInstance: NumbersDB;
-export const numbersDB = (): INumbersDB => {
-  if (!dbInstance) dbInstance = new NumbersDB();
-  return dbInstance;
-};
+const dbInstance = new NumbersDB();
+export const numbersDB = (): INumbersDB => dbInstance;
