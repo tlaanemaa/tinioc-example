@@ -28,3 +28,25 @@ employeesRouter.get("/oldest", async (req, res, next) => {
 
   next();
 });
+
+employeesRouter.get("/youngest", async (req, res, next) => {
+  const ctx = { correlationId: req.header("correlation-id") ?? uuidv4() };
+  const container = await employeesContainer
+    .createChild()
+    .bind<IRequestContext>(REQUEST_CONTEXT, () => ctx);
+
+  try {
+    const result = await container
+      .get<IEmployeesService>(EMPLOYEES_SERVICE)
+      .getYoungest();
+
+    res.json(result);
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Something broke";
+    const logger = container.get<ILogger>(LOGGER);
+    logger.error(message);
+    res.status(500).json({ error: "Something broke :(" });
+  }
+
+  next();
+});
