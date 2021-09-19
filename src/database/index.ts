@@ -1,3 +1,3 @@
 export { numbersDB } from "./numbersDB";
 export * from "./bindings";
-export { container } from './container'
+export { dbContainer } from './container'

@@ -7,13 +7,13 @@ import {
 } from "./bindings";
 import { employeesClient } from "./employees.client";
 import { employeesService } from "./employees.service";
-import { container as databaseContainer } from "../database";
-import { container as loggerContainer } from "../logger";
+import { dbContainer } from "../database";
+import { loggerContainer } from "../logger";
 
-export const container = new Container().extend(
-  databaseContainer,
+export const employeesContainer = new Container().extend(
+  dbContainer,
   loggerContainer
 );
 
-container.bind<IEmployeesClient>(EMPLOYEES_CLIENT, employeesClient);
-container.bind<IEmployeesService>(EMPLOYEES_SERVICE, employeesService);
+employeesContainer.bind<IEmployeesClient>(EMPLOYEES_CLIENT, employeesClient);
+employeesContainer.bind<IEmployeesService>(EMPLOYEES_SERVICE, employeesService);

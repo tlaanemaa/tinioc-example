@@ -1,2 +1,2 @@
 export * from "./bindings";
-export { container } from "./container";
+export { loggerContainer } from "./container";
