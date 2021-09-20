@@ -9,7 +9,7 @@ export const employeesRouter = Router();
 
 employeesRouter.get("/oldest", async (req, res, next) => {
   const ctx = { correlationId: req.header("correlation-id") ?? uuidv4() };
-  const container = await employeesContainer
+  const container = employeesContainer
     .createChild()
     .bind<IRequestContext>(REQUEST_CONTEXT, () => ctx);
 
@@ -31,7 +31,7 @@ employeesRouter.get("/oldest", async (req, res, next) => {
 
 employeesRouter.get("/youngest", async (req, res, next) => {
   const ctx = { correlationId: req.header("correlation-id") ?? uuidv4() };
-  const container = await employeesContainer
+  const container = employeesContainer
     .createChild()
     .bind<IRequestContext>(REQUEST_CONTEXT, () => ctx);
 
