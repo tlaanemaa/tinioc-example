@@ -1,16 +1,21 @@
 import fetch from "node-fetch";
 import { Inject } from "tinioc";
-import { IEmployeesClient } from "./bindings";
-import { IEmployee } from "./types";
-import { IRequestContext, REQUEST_CONTEXT } from "../context/bindings";
-import { INumbersDB, NUMBERS_DB } from "../database/bindings";
-import { ILogger, LOGGER } from "../logger/bindings";
+import {
+  IEmployeesClient,
+  IRequestContext,
+  REQUEST_CONTEXT,
+  INumbersDB,
+  NUMBERS_DB,
+  ILoggerClient,
+  LOGGER_CLIENT,
+} from "../bindings";
+import { IEmployee } from "../types";
 
 export const employeesClient = (inject: Inject): IEmployeesClient => ({
   getAll: async () => {
     const { correlationId } = inject<IRequestContext>(REQUEST_CONTEXT);
     const numbersDB = inject<INumbersDB>(NUMBERS_DB);
-    const logger = inject<ILogger>(LOGGER);
+    const logger = inject<ILoggerClient>(LOGGER_CLIENT);
 
     // Count how many requests we've done
     const requestsDone = (numbersDB.getById("requests_done") ?? 0) + 1;

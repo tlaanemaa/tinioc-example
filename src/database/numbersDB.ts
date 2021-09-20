@@ -1,4 +1,4 @@
-import { INumbersDB } from "./bindings";
+import { INumbersDB } from "../bindings";
 
 /**
  * A simple example implementation of a database

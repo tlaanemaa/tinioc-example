@@ -1,7 +1,6 @@
 import { Inject } from "tinioc";
 import * as winston from "winston";
-import { IRequestContext, REQUEST_CONTEXT } from "../context/bindings";
-import { ILogger } from "./bindings";
+import { ILoggerClient, IRequestContext, REQUEST_CONTEXT } from "../bindings";
 
 const baseLogger = winston.createLogger({
   level: "info",
@@ -14,7 +13,7 @@ const baseLogger = winston.createLogger({
   ],
 });
 
-export const logger = (inject: Inject): ILogger => {
+export const loggerClient = (inject: Inject): ILoggerClient => {
   const { correlationId } = inject<IRequestContext>(REQUEST_CONTEXT);
   return baseLogger.child({ correlationId });
 };

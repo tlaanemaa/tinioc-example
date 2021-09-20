@@ -3,7 +3,7 @@ import {
   IEmployeesService,
   IEmployeesClient,
   EMPLOYEES_CLIENT,
-} from "./bindings";
+} from "../bindings";
 
 export const employeesService = (inject: Inject): IEmployeesService => ({
   getYoungest: async () => {
