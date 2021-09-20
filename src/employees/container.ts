@@ -5,10 +5,10 @@ import {
   IEmployeesService,
   EMPLOYEES_SERVICE,
 } from "./bindings";
-import { employeesClient } from "./employees.client";
-import { employeesService } from "./employees.service";
-import { dbContainer } from "../database";
-import { loggerContainer } from "../logger";
+import { employeesClient } from "./client";
+import { employeesService } from "./service";
+import { dbContainer } from "../database/container";
+import { loggerContainer } from "../logger/container";
 
 export const employeesContainer = new Container().extend(
   dbContainer,

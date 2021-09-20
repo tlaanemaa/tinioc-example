@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { v4 as uuidv4 } from "uuid";
 import { IEmployeesService, EMPLOYEES_SERVICE } from "./bindings";
-import { IRequestContext, REQUEST_CONTEXT } from "../context";
+import { IRequestContext, REQUEST_CONTEXT } from "../context/bindings";
 import { employeesContainer } from "./container";
-import { ILogger, LOGGER } from "../logger";
+import { ILogger, LOGGER } from "../logger/bindings";
 
 export const employeesRouter = Router();
 

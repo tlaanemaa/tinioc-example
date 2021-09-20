@@ -2,9 +2,9 @@ import fetch from "node-fetch";
 import { Inject } from "tinioc";
 import { IEmployeesClient } from "./bindings";
 import { IEmployee } from "./types";
-import { IRequestContext, REQUEST_CONTEXT } from "../context";
-import { INumbersDB, NUMBERS_DB } from "../database";
-import { ILogger, LOGGER } from "../logger";
+import { IRequestContext, REQUEST_CONTEXT } from "../context/bindings";
+import { INumbersDB, NUMBERS_DB } from "../database/bindings";
+import { ILogger, LOGGER } from "../logger/bindings";
 
 export const employeesClient = (inject: Inject): IEmployeesClient => ({
   getAll: async () => {

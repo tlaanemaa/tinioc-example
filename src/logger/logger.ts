@@ -1,6 +1,6 @@
 import { Inject } from "tinioc";
 import * as winston from "winston";
-import { IRequestContext, REQUEST_CONTEXT } from "../context";
+import { IRequestContext, REQUEST_CONTEXT } from "../context/bindings";
 import { ILogger } from "./bindings";
 
 const baseLogger = winston.createLogger({
