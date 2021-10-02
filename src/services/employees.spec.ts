@@ -6,8 +6,10 @@ import { EMPLOYEES_CLIENT } from "../bindings";
  * A simple utility to create mocked inject functions.
  * This might make sense to be added to tinioc at some point.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const createMockInject = (object: Record<ID, any>) => (id: ID) => object[id];
+const createMockInject =
+  (object: Record<ID, unknown>) =>
+  <T>(id: ID) =>
+    object[id] as T;
 
 /*
   An example of how you'd test a tinioc component
