@@ -13,6 +13,13 @@ const baseLogger = winston.createLogger({
   ],
 });
 
+/**
+ * An example logger client to showcase the most common use case for
+ * request context injection.
+ *
+ * All we do here is clone the baseLogger defined above and give it our
+ * correlationId for context.
+ */
 export const loggerClient = (inject: Inject): ILoggerClient => {
   const { correlationId } = inject<IRequestContext>(REQUEST_CONTEXT);
   return baseLogger.child({ correlationId });

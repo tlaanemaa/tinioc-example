@@ -1,3 +1,8 @@
+/*
+  General express app bootstrapping.
+  Nothing too special here.
+*/
+
 import * as express from "express";
 import routes from "./routes";
 
