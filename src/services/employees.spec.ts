@@ -4,7 +4,6 @@ import { EMPLOYEES_CLIENT } from "../bindings";
 
 /**
  * A simple utility to create mocked inject functions.
- * This might make sense to be added to tinioc at some point.
  */
 const createMockInject =
   (object: Record<ID, unknown>) =>
