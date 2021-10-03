@@ -14,12 +14,12 @@ import {
 import { IEmployee } from "../../types";
 
 /**
- * An example client to showcase how dependencies
- * are injected into a component
+ * An example client, implemented as an object literal.
  *
  * We're immediately returning an object with methods here but you could also
  * do some logic first and return your component in the end.
- * It is advised to inject close usage tho as this reduces circular
+ *
+ * It is advised to inject close usage as this reduces circular
  * dependency issues and improves performance.
  */
 export const employeesClient = (inject: Inject): IEmployeesClient => ({

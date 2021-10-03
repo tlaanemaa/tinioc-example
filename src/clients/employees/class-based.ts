@@ -14,11 +14,14 @@ import {
 import { IEmployee } from "../../types";
 
 /**
- * An example client to showcase how dependencies
- * are injected into a component
+ * An example client, implemented as a class.
  *
- * We're implementing the same EmployeesClient as a class here.
- * As long as the class implements IEmployeesClient, we're good.
+ * We're taking the inject function in as a constructor argument and
+ * then we can use it anywhere in the class to either inject at class
+ * initialization, into class properties, or inside our methods.
+ *
+ * It is advised to inject close usage as this reduces circular
+ * dependency issues and improves performance.
  */
 class EmployeesClient implements IEmployeesClient {
   /*
