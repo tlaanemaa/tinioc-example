@@ -17,3 +17,37 @@ _An example micro-service showcasing [tinioc](https://github.com/tlaanemaa/tinio
   - [Object literal based](https://github.com/tlaanemaa/tinioc-example/blob/main/src/clients/employees/object-literal-based.ts)
 - [Singleton component implementation](https://github.com/tlaanemaa/tinioc-example/blob/main/src/database/numbersDB.ts)
 - [Testing](https://github.com/tlaanemaa/tinioc-example/blob/main/src/services/employees.spec.ts)
+
+## Working with the project
+
+### Setup
+
+Clone the project and install it's dependencies
+
+```sh
+git clone https://github.com/tlaanemaa/tinioc-example.git
+cd tinioc-example
+npm install
+```
+
+### Starting
+
+The project will be rebuilt automatically every time it is started so you don't have to worry about that
+
+```sh
+npm start
+```
+
+### Testing & linting
+
+There's not a lot of tests here but the ones that are can be run like this
+
+```sh
+npm test
+```
+
+There's also ESLint which can be run like so
+
+```sh
+npm run lint
+```
