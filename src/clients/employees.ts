@@ -8,6 +8,8 @@ import {
   NUMBERS_DB,
   ILoggerClient,
   LOGGER_CLIENT,
+  IRandomInteger,
+  RANDOM_INTEGER,
 } from "../bindings";
 import { IEmployee } from "../types";
 
@@ -24,14 +26,16 @@ export const employeesClient = (inject: Inject): IEmployeesClient => ({
   getAll: async () => {
     /*
       This is where we'll inject all of our dependencies
+      The randomInteger is here to showcase injecting async components
     */
     const { correlationId } = inject<IRequestContext>(REQUEST_CONTEXT);
     const numbersDB = inject<INumbersDB>(NUMBERS_DB);
     const logger = inject<ILoggerClient>(LOGGER_CLIENT);
+    const randomInteger = await inject<IRandomInteger>(RANDOM_INTEGER);
 
     const requestsDone = (numbersDB.getById("requests_done") ?? 0) + 1;
     numbersDB.setById("requests_done", requestsDone);
-    logger.info("Sending request", { requestsDone });
+    logger.info("Sending request", { requestsDone, randomInteger });
 
     const result = await fetch(
       "https://dummy.restapiexample.com/api/v1/employees",

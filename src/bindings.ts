@@ -30,6 +30,9 @@ export interface IEmployeesService {
   getYoungest(): Promise<IEmployee>;
 }
 
+export const RANDOM_INTEGER = Symbol.for("random_integer");
+export type IRandomInteger = Promise<number>;
+
 export const EMPLOYEES_CLIENT = Symbol.for("employees_client");
 export interface IEmployeesClient {
   getAll(): Promise<IEmployee[]>;

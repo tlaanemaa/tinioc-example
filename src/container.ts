@@ -12,6 +12,7 @@ import { loggerClient } from "./clients/logger";
 import { employeesClient } from "./clients/employees";
 import { numbersDB } from "./database/numbersDB";
 import { employeesService } from "./services/employees";
+import { randomInteger } from "./services/randomInteger";
 
 export const container = new Container();
 
@@ -25,3 +26,4 @@ container.bind<bindings.IEmployeesService>(
   bindings.EMPLOYEES_SERVICE,
   employeesService
 );
+container.bind<bindings.IRandomInteger>(bindings.RANDOM_INTEGER, randomInteger);
