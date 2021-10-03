@@ -9,7 +9,7 @@
 import { Container } from "tinioc";
 import * as bindings from "./bindings";
 import { loggerClient } from "./clients/logger";
-import { employeesClient } from "./clients/employees";
+import { employeesClient } from "./clients/employees/class-based";
 import { numbersDB } from "./database/numbersDB";
 import { employeesService } from "./services/employees";
 import { randomInteger } from "./services/randomInteger";

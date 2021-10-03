@@ -10,8 +10,8 @@ import {
   LOGGER_CLIENT,
   IRandomInteger,
   RANDOM_INTEGER,
-} from "../bindings";
-import { IEmployee } from "../types";
+} from "../../bindings";
+import { IEmployee } from "../../types";
 
 /**
  * An example client to showcase how dependencies
@@ -35,7 +35,10 @@ export const employeesClient = (inject: Inject): IEmployeesClient => ({
 
     const requestsDone = (numbersDB.getById("requests_done") ?? 0) + 1;
     numbersDB.setById("requests_done", requestsDone);
-    logger.info("Sending request", { requestsDone, randomInteger });
+    logger.info("Sending request (object-literal-based)", {
+      requestsDone,
+      randomInteger,
+    });
 
     const result = await fetch(
       "https://dummy.restapiexample.com/api/v1/employees",
