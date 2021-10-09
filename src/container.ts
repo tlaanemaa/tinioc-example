@@ -1,6 +1,6 @@
 /*
   This is our container file.
-  Here we initialize the container and bind all of our components to it.
+  Here we initialize the container and register all of our components to it.
   In this example we're using a single global container, but you can also
   use local containers, per submodule for example. The container can be extended with
   other containers essentially allowing you to inherit from them.
@@ -16,14 +16,14 @@ import { randomInteger } from "./services/randomInteger";
 
 export const container = new Container();
 
-container.bind<bindings.ILoggerClient>(bindings.LOGGER_CLIENT, loggerClient);
-container.bind<bindings.INumbersDB>(bindings.NUMBERS_DB, numbersDB);
-container.bind<bindings.IEmployeesClient>(
+container.register<bindings.ILoggerClient>(bindings.LOGGER_CLIENT, loggerClient);
+container.register<bindings.INumbersDB>(bindings.NUMBERS_DB, numbersDB);
+container.register<bindings.IEmployeesClient>(
   bindings.EMPLOYEES_CLIENT,
   employeesClient
 );
-container.bind<bindings.IEmployeesService>(
+container.register<bindings.IEmployeesService>(
   bindings.EMPLOYEES_SERVICE,
   employeesService
 );
-container.bind<bindings.IRandomInteger>(bindings.RANDOM_INTEGER, randomInteger);
+container.register<bindings.IRandomInteger>(bindings.RANDOM_INTEGER, randomInteger);

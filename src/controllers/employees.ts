@@ -23,7 +23,7 @@ employeesRouter.get("/youngest", async (req, res, next) => {
   const ctx = { correlationId: req.header("correlation-id") ?? uuidv4() };
   const localContainer = container
     .createChild()
-    .bind<IRequestContext>(REQUEST_CONTEXT, () => ctx);
+    .register<IRequestContext>(REQUEST_CONTEXT, () => ctx);
 
   try {
     /*

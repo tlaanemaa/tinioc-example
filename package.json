@@ -36,7 +36,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "node-fetch": "^2.6.2",
-    "tinioc": "^0.5.5",
+    "tinioc": "^0.6.0",
     "uuid": "^8.3.2",
     "winston": "^3.3.3"
   },
